@@ -60,6 +60,7 @@ set wrap
 set textwidth=79
 set formatoptions=qnrn1
 set colorcolumn=85
+highlight ColorColumn ctermbg=12
 
 "learn vim movement the right way
 nnoremap <up> <nop>
@@ -73,5 +74,5 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-"quickly add text to the end of a line"
+"quickly add text to the end of a line
 nnoremap <shift>a <shift>$a
