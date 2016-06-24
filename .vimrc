@@ -73,3 +73,5 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+"quickly add text to the end of a line"
+nnoremap <shift>a <shift>$a
