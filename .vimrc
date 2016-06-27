@@ -87,6 +87,3 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-"mark bad whitespace (for Python and C)
-highlight BadWhitespace ctermbg=red guibg=red
-au BufRead,BufNewFile *.py,*.c,*.h match BadWhitespace /\s\+$/
