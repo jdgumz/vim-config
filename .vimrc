@@ -62,10 +62,6 @@ set formatoptions=qnrn1
 set colorcolumn=85
 highlight ColorColumn ctermbg=12
 
-"show tabs and eol characters
-set list
-set listchars:tab:▸\ ,eol:¬
-
 "learn vim movement the right way
 nnoremap <up> <nop>
 nnoremap <down> <nop>
