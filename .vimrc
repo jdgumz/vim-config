@@ -62,6 +62,10 @@ set formatoptions=qnrn1
 set colorcolumn=85
 highlight ColorColumn ctermbg=12
 
+"show tabs and eol characters
+set list
+set listchars:tab:▸\ ,eol:¬
+
 "learn vim movement the right way
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -76,3 +80,17 @@ nnoremap k gk
 
 "quickly add text to the end of a line
 nnoremap <shift>a <shift>$a
+
+"python specific settings
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+"mark bad whitespace (for Python and C)
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py,*.c,*.h match BadWhitespace /\s\+$/
