@@ -15,9 +15,8 @@ set encoding=utf-8
 set background=dark
 colorscheme solarized
 
+"no need for vi compatibility
 set nocompatible
-
-set modelines=0
 
 "tab settings"
 set tabstop=4
@@ -25,12 +24,19 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+"make space the leader key
 let mapleader = "\<Space>"
 
 "thanks to Steve Losh's guide for these helpful settings: 
 "http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
-set scrolloff=3
+"many of these are simple quality of use improvements,
+"such as hiding files instead of closing them when new ones are opened
+"(hidden), presenting file and vim info (wildmenu, laststatus, showmode, showcmd),
+"flashing the screen instead of beeping when there's an error (visualbell),
+"providing column info (ruler) and changing line numbers to be relative
+"(relativenumber)
+set scrolloff=5
 set autoindent
 set showmode
 set showcmd
@@ -45,18 +51,25 @@ set laststatus=2
 set relativenumber
 
 "searching and moving configs
-
+"remaps to make regex search faster
 nnoremap / /\v
 vnoremap / /\v
 
+"if the search is *all* lower-case, be case insensitive; else, be case sensitive
 set ignorecase
 set smartcase
+
+"places a /g at the end of a search and replace
+"e.g., '/something' and then ':%s//something_else/g'
 set gdefault
+
+"incremental searching with highlighting
 set incsearch
 set showmatch
 set hlsearch
+
+"convenient remappings for searching
 nnoremap <leader>s :noh<cr>
-nnoremap <tab> %
 nnoremap <tab> %
 
 "handle long lines
@@ -75,8 +88,15 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+"allow for slightly smarter movement between lines
 nnoremap j gj
 nnoremap k gk
+"these two re-center the screen on the cursor
+"very useful for skipping to relative lines that are at the edges or
+"are not on the screen
+nnoremap zj gjzz
+nnoremap zk gkzz
 
 "quickly add text to the end of a line
 nnoremap <shift>a <shift>$a
