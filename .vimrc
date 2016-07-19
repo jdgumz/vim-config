@@ -7,9 +7,13 @@ filetype off
 execute pathogen#infect()
 
 "ooh, very pretty!
+"add support for solarized
+"(https://github.com/altercation/vim-colors-solarized)
 syntax on
 filetype plugin indent on
 set encoding=utf-8
+set background=dark
+colorscheme solarized
 
 set nocompatible
 
