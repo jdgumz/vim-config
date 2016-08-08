@@ -1,22 +1,31 @@
-"my config"
+"my config
 
-"thanks to Daniel Miessler for these basic settings suggestions
+"thanks to Daniel Miessler for some basic settings suggestions
 "https://danielmiessler.com/study/vim/#references
 
+"thanks to Steve Losh's guide for more helpful settings: 
+"http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+
 filetype off
-execute pathogen#infect()
 
 "ooh, very pretty!
-"add support for solarized
-"(https://github.com/altercation/vim-colors-solarized)
 syntax on
-filetype plugin indent on
 set encoding=utf-8
 set background=dark
-colorscheme solarized
 
 "no need for vi compatibility
 set nocompatible
+
+"vundle support
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"vundle plugins
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'pangloss/vim-javascript'
+
+call vundle#end()
+filetype plugin indent on
 
 "tab settings"
 set tabstop=4
@@ -27,8 +36,6 @@ set expandtab
 "make space the leader key
 let mapleader = "\<Space>"
 
-"thanks to Steve Losh's guide for these helpful settings: 
-"http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
 "many of these are simple quality of use improvements,
 "such as hiding files instead of closing them when new ones are opened
