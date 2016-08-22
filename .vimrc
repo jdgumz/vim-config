@@ -83,7 +83,7 @@ nnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qnrn1
-set colorcolumn=90
+set colorcolumn=120
 highlight ColorColumn ctermbg=12
 
 "learn vim movement the right way
