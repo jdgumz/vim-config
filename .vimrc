@@ -23,6 +23,9 @@ call vundle#begin()
 "vundle plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
@@ -118,3 +121,7 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
+"json settings
+au BufNewFile,BufRead *.json set filetype=json
+
+au BufNewFile,BufRead *.md set filetype=markdown
