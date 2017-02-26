@@ -17,6 +17,11 @@ if $TERM_PROGRAM =~ "iTerm"
     set termguicolors
     let g:onedark_termcolors=16
     colorscheme onedark
+elseif $TERM =~ "xterm-256color"
+    "for Ubuntu
+    set termguicolors
+    let g:onedark_termcolors=24
+    colorscheme onedark
 endif
 
 "no need for vi compatibility
