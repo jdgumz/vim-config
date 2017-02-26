@@ -11,7 +11,13 @@ filetype off
 "ooh, very pretty!
 syntax on
 set encoding=utf-8
-set background=dark
+"set background=dark
+
+if $TERM_PROGRAM =~ "iTerm"
+    set termguicolors
+    let g:onedark_termcolors=16
+    colorscheme onedark
+endif
 
 "no need for vi compatibility
 set nocompatible
@@ -26,6 +32,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'joshdick/onedark.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -82,6 +90,15 @@ set hlsearch
 nnoremap <leader>s :noh<cr>
 nnoremap <tab> %
 
+"make splitting buffers easier
+set splitbelow
+set splitright
+"streamline split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 "handle long lines
 set wrap
 set textwidth=79
@@ -102,14 +119,6 @@ inoremap <right> <nop>
 "allow for slightly smarter movement between lines
 nnoremap j gj
 nnoremap k gk
-"these two re-center the screen on the cursor
-"very useful for skipping to relative lines that are at the edges or
-"are not on the screen
-nnoremap zj gjzz
-nnoremap zk gkzz
-
-"quickly add text to the end of a line
-nnoremap <shift>a <shift>$a
 
 "python specific settings
 au BufNewFile,BufRead *.py
