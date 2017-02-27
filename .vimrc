@@ -28,7 +28,6 @@ call vundle#begin()
 
 "vundle plugins
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -121,6 +120,10 @@ nnoremap j gj
 nnoremap k gk
 
 "python specific settings
+let g:python_highlight_builtins=1
+let g:python_highlight_exceptions=1
+let g:python_highlight_string_formatting=1
+let g:python_highlight_doctests=1
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
