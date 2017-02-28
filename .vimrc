@@ -24,6 +24,10 @@ elseif $TERM =~ "xterm-256color"
     colorscheme onedark
 endif
 
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ }
+
 "no need for vi compatibility
 set nocompatible
 
@@ -38,9 +42,11 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'joshdick/onedark.vim'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
 filetype plugin indent on
+
 
 "tab settings"
 set tabstop=4
@@ -58,9 +64,12 @@ let mapleader = "\<Space>"
 "flashing the screen instead of beeping when there's an error (visualbell),
 "providing column info (ruler) and changing line numbers to be relative
 "(relativenumber)
+" laststatus=2 is required for some auxiliary tools like lightline - it
+" maintains a status line from the last window
 set scrolloff=5
 set autoindent
-set showmode
+" lightline takes care of the info that showmode would have provided
+set noshowmode
 set showcmd
 set hidden
 set wildmenu
@@ -137,6 +146,9 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
+    " add folding rules specific to Python
+    \ set foldmethod=indent
+    \ set foldlevel=99
 
 "json settings
 au BufNewFile,BufRead *.json set filetype=json
