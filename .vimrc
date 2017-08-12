@@ -34,19 +34,15 @@ set nocompatible
 "vundle support
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 "vundle plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'elzr/vim-json'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'joshdick/onedark.vim'
 Plugin 'itchyny/lightline.vim'
-
 call vundle#end()
 filetype plugin indent on
-
 
 "tab settings"
 set tabstop=4
@@ -154,3 +150,6 @@ au BufNewFile,BufRead *.py
 au BufNewFile,BufRead *.json set filetype=json
 
 au BufNewFile,BufRead *.md set filetype=markdown
+
+"manually override settings for *.ex and *.exs to be Elixir
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
