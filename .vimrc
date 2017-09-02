@@ -13,17 +13,6 @@ syntax on
 set encoding=utf-8
 "set background=dark
 
-if $TERM_PROGRAM =~ "iTerm"
-    set termguicolors
-    let g:onedark_termcolors=16
-    colorscheme onedark
-elseif $TERM =~ "xterm-256color"
-    "for Ubuntu
-    set termguicolors
-    let g:onedark_termcolors=24
-    colorscheme onedark
-endif
-
 let g:lightline = {
     \ 'colorscheme': 'seoul256',
     \ }
