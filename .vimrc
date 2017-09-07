@@ -28,7 +28,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'elzr/vim-json'
 Plugin 'godlygeek/tabular'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'joshdick/onedark.vim'
+Plugin 'chriskempson/base16-vim'
 Plugin 'itchyny/lightline.vim'
 call vundle#end()
 filetype plugin indent on

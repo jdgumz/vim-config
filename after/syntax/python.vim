@@ -39,7 +39,7 @@ syntax match pythonSelf "\zsself\ze[,.)]"
 highlight link pythonConstant Constant
 highlight link pythonBoolType Boolean
 highlight link pythonNoneType Keyword
-highlight link pythonException Type
+" highlight link pythonException Type
 highlight link pythonOpType Function
 highlight link MethodParameter Type
 hi  pythonSelf guifg=#638CAD
