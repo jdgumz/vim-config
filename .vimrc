@@ -17,6 +17,12 @@ let g:lightline = {
     \ 'colorscheme': 'seoul256',
     \ }
 
+"base16 support
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 "no need for vi compatibility
 set nocompatible
 
