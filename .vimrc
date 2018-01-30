@@ -40,6 +40,8 @@ call vundle#end()
 filetype plugin indent on
 
 "tab settings"
+set smartindent
+set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -48,6 +50,9 @@ set expandtab
 "make space the leader key
 let mapleader = "\<Space>"
 
+"show special whitespace characters
+set listchars=tab:>-,trail:-,nbsp:_
+set list
 
 "many of these are simple quality of use improvements,
 "such as hiding files instead of closing them when new ones are opened
