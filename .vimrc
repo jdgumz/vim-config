@@ -48,6 +48,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+"ignore spell checking for markdown files
+let g:markdown_enable_spell_checking = 0
+
 "make space the leader key
 let mapleader = "\<Space>"
 
