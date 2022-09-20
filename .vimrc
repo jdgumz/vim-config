@@ -36,6 +36,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'chriskempson/base16-vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'gabrielelana/vim-markdown'
 call vundle#end()
 filetype plugin indent on
 
