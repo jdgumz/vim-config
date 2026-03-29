@@ -3,7 +3,7 @@
 "thanks to Daniel Miessler for some basic settings suggestions
 "https://danielmiessler.com/study/vim/#references
 
-"thanks to Steve Losh's guide for more helpful settings:
+"thanks to Steve Losh's guide for more helpful settings: 
 "http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
 filetype off
@@ -11,11 +11,13 @@ filetype off
 "ooh, very pretty!
 syntax on
 set encoding=utf-8
-set background=dark
-let g:seoul256_background = 236
-colo seoul256
+"set background=dark
 
-"base16 support - optional
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ }
+
+"base16 support
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -76,6 +78,7 @@ set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
+set visualbell
 set ruler
 set ttyfast
 set backspace=indent,eol,start
@@ -120,8 +123,8 @@ nnoremap <C-H> <C-W><C-H>
 set wrap
 set textwidth=79
 set formatoptions=qnrn1
-"set colorcolumn=120
-"highlight ColorColumn ctermbg=12
+set colorcolumn=120
+highlight ColorColumn ctermbg=12
 
 "learn vim movement the right way
 nnoremap <up> <nop>
@@ -170,7 +173,7 @@ au BufNewFile,BufRead *.py
     \ set foldmethod=indent
     \ set foldlevel=99
 
-"TypeScript and TSX use the repo's 2-space formatting defaults
+"TypeScript and TSX use 2-space formatting defaults
 augroup typescript_settings
   autocmd!
   autocmd BufNewFile,BufRead *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
