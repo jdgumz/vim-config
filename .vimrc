@@ -3,7 +3,7 @@
 "thanks to Daniel Miessler for some basic settings suggestions
 "https://danielmiessler.com/study/vim/#references
 
-"thanks to Steve Losh's guide for more helpful settings: 
+"thanks to Steve Losh's guide for more helpful settings:
 "http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
 filetype off
@@ -11,13 +11,11 @@ filetype off
 "ooh, very pretty!
 syntax on
 set encoding=utf-8
-"set background=dark
+set background=dark
+let g:seoul256_background = 236
+colo seoul256
 
-let g:lightline = {
-    \ 'colorscheme': 'seoul256',
-    \ }
-
-"base16 support
+"base16 support - optional
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -25,6 +23,12 @@ endif
 
 "no need for vi compatibility
 set nocompatible
+
+"make space the leader key
+let mapleader = "\<Space>"
+
+"coc.nvim global extension list
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
 
 "vundle support
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -36,6 +40,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'chriskempson/base16-vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'gabrielelana/vim-markdown'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()
 filetype plugin indent on
 
@@ -47,8 +53,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"make space the leader key
-let mapleader = "\<Space>"
+"ignore spell checking for markdown files
+let g:markdown_enable_spell_checking = 0
 
 "show special whitespace characters
 set listchars=tab:>-,trail:-,nbsp:_
@@ -70,12 +76,14 @@ set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
-set visualbell
 set ruler
 set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
+set number
+set updatetime=200
+set signcolumn=yes
 
 "searching and moving configs
 "remaps to make regex search faster
@@ -112,8 +120,8 @@ nnoremap <C-H> <C-W><C-H>
 set wrap
 set textwidth=79
 set formatoptions=qnrn1
-set colorcolumn=120
-highlight ColorColumn ctermbg=12
+"set colorcolumn=120
+"highlight ColorColumn ctermbg=12
 
 "learn vim movement the right way
 nnoremap <up> <nop>
@@ -128,6 +136,22 @@ inoremap <right> <nop>
 "allow for slightly smarter movement between lines
 nnoremap j gj
 nnoremap k gk
+
+"coc.nvim navigation and refactors
+nmap gd <Plug>(coc-definition)
+nmap gr <Plug>(coc-references)
+nmap gi <Plug>(coc-implementation)
+nmap gy <Plug>(coc-type-definition)
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>ca <Plug>(coc-codeaction)
+nmap <leader>qf <Plug>(coc-fix-current)
+
+"repo helpers
+command! -nargs=0 BitsFix :!bun run fix
+command! -nargs=0 BitsTypecheck :!bun run typecheck
+command! -nargs=0 BitsCheck :!bun run check
+command! -nargs=0 BitsTest :!bun test
 
 "python specific settings
 let g:python_highlight_builtins=1
@@ -145,6 +169,12 @@ au BufNewFile,BufRead *.py
     " add folding rules specific to Python
     \ set foldmethod=indent
     \ set foldlevel=99
+
+"TypeScript and TSX use the repo's 2-space formatting defaults
+augroup typescript_settings
+  autocmd!
+  autocmd BufNewFile,BufRead *.ts,*.tsx,*.js,*.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+augroup END
 
 "json settings
 au BufNewFile,BufRead *.json set filetype=json
